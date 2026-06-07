@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preetham Anton | Biotech Product Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --accent-warm: #f97316;
+            --accent-lime: #84cc16;
+            --accent-coral: #ff6b6b;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section.alt {
+            background: var(--bg-white);
+        }
+
+        /* Header / Navigation */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-warm) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-warm) 100%);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.3);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-white);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 50%, var(--accent-warm) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .hero-buttons .cta-button {
+            font-size: 1rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-meta-item {
+            text-align: center;
+        }
+
+        .hero-meta-item .number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-meta-item .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Thesis Section */
+        .thesis {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .thesis-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .thesis-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(14, 165, 233, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .thesis-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .thesis-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .thesis-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header .accent {
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Roles Section */
+        .roles {
+            padding: 6rem 2rem;
+            background: var(--bg-white);
+        }
+
+        .role-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .role-item:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .role-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        @media (max-width: 768px) {
+            .role-item, .role-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2rem;
+            }
+
+            .role-item:nth-child(even) > * {
+                direction: ltr;
+            }
+        }
+
+        .role-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .role-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .role-content li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .role-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-warm);
+            font-weight: bold;
+        }
+
+        .role-visual {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .role-visual .big-emoji {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Grid */
+        .projects {
+            padding: 6rem 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 32px rgba(14, 165, 233, 0.12);
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-header .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header .meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .project-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: rgba(14, 165, 233, 0.15);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tag.warm {
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--accent-warm);
+        }
+
+        .tag.lime {
+            background: rgba(132, 204, 22, 0.15);
+            color: var(--accent-lime);
+        }
+
+        /* Research Section */
+        .research {
+            padding: 6rem 2rem;
+            background: var(--bg-white);
+        }
+
+        .research-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .research-item:hover {
+            border-left-color: var(--accent-warm);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .research-item h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .research-item .meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .research-item p {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 2rem;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .cta-button {
+                width: 100%;
+            }
+
+            .hero-meta {
+                gap: 1rem;
+            }
+
+            .thesis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">Preetham Anton</div>
+            <nav>
+                <a href="#thesis">About</a>
+                <a href="#roles">Work</a>
+                <a href="#projects">Projects</a>
+                <a href="#research">Research</a>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>I turn biotech complexity into competitive advantage.</h1>
+            <p class="subtitle">Scientist + Product Strategist. Translating research into market-winning strategies for biologics and biosimilars.</p>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">Let's Talk Strategy</a>
+                <a href="#roles" class="cta-button" style="background: white; color: var(--primary); border: 2px solid var(--primary);">See My Work</a>
+            </div>
+
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="number">5+</span>
+                    <span class="label">Biotech Projects Shipped</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="number">200+</span>
+                    <span class="label">Stakeholders Trained</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="number">3</span>
+                    <span class="label">Years Research Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thesis Section -->
+    <section id="thesis" class="thesis alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why <span class="accent">Different</span></h2>
+                <p>Most scientists can't speak business. Most business people don't understand science. I do both—and I ship outcomes.</p>
+            </div>
+
+            <div class="thesis-grid">
+                <div class="thesis-card fade-in">
+                    <span class="icon">🔬</span>
+                    <h3>Research Depth</h3>
+                    <p>DNA nanostructures, insulin biosimilars, gene delivery systems. I don't just understand biotech—I've built it in the lab.</p>
+                </div>
+                <div class="thesis-card fade-in">
+                    <span class="icon">📈</span>
+                    <h3>Product Thinking</h3>
+                    <p>I train dealer networks on competitive positioning. I design customer narratives around molecular mechanisms. I think in USPs.</p>
+                </div>
+                <div class="thesis-card fade-in">
+                    <span class="icon">🎤</span>
+                    <h3>Communication as Weapon</h3>
+                    <p>Magazine editor. Conference MC. Presentation design specialist. Science only matters if your stakeholders get it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section id="roles" class="roles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Where I Work</h2>
+                <p>Current and past roles where I've proven this combination</p>
+            </div>
+
+            <!-- Aurolab -->
+            <div class="role-item">
+                <div class="role-content">
+                    <h3>Product Trainer</h3>
+                    <p class="role-meta">Aurolab International Business | April 2025–Present | Madurai, Tamil Nadu</p>
+                    <p style="color: var(--text-dark); font-weight: 500;">Translating biotech complexity into dealer and healthcare stakeholder value.</p>
+                    <ul>
+                        <li><strong>Trained 200+ stakeholders</strong> on competitive positioning, molecular mechanisms, and USPs</li>
+                        <li><strong>Designed interactive training materials</strong> (videos, LMS modules, case studies) achieving 90%+ post-training pass rates</li>
+                        <li><strong>Co-created scientific content</strong> for digital platforms and conferences in collaboration with marketing teams</li>
+                        <li><strong>Developed troubleshooting guides</strong> and comparative product documents for field teams</li>
+                    </ul>
+                </div>
+                <div class="role-visual">
+                    <div>
+                        <span class="big-emoji">🎓</span>
+                        <p style="color: var(--text-dark); font-weight: 600;">Dealer training delivered</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Fellow -->
+            <div class="role-item">
+                <div class="role-content">
+                    <h3>Summer Research Fellow</h3>
+                    <p class="role-meta">CSIR Institute of Minerals & Materials Technology | July–September 2024 | Bhubaneshwar</p>
+                    <p style="color: var(--text-dark); font-weight: 500;">Cutting-edge biotech research in DNA nanostructures for drug delivery.</p>
+                    <ul>
+                        <li><strong>Synthesized and optimized</strong> branched DNA nanostructures for therapeutic applications</li>
+                        <li><strong>Executed gene expression studies</strong> (RT-PCR) for GAPDH and 18S targets</li>
+                        <li><strong>Characterized materials</strong> using gel electrophoresis and isothermal titration calorimetry</li>
+                        <li><strong>Published outcomes</strong> in peer-reviewed formats</li>
+                    </ul>
+                </div>
+                <div class="role-visual">
+                    <div>
+                        <span class="big-emoji">🧬</span>
+                        <p style="color: var(--text-dark); font-weight: 600;">Gene expression: Successful</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proof of <span class="accent">Work</span></h2>
+                <p>Problems I've solved. Outcomes I've shipped. Real biotech.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">Nano Biosimilars for Targeted Drug Delivery</div>
+                        <div class="meta">Jan–Mar 2024 | Regulatory Strategy</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Architected a regulatory framework for integrating patch-based platforms and biosensors into nano biosimilar delivery systems. Mapped CDISC pathways and compliance requirements for international markets.</p>
+                        <div class="project-tags">
+                            <span class="tag">Biosimilars</span>
+                            <span class="tag warm">Regulatory</span>
+                            <span class="tag lime">Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">Gene Delivery to Triple-Negative Breast Cancer</div>
+                        <div class="meta">Oct–Dec 2023 | Therapeutic Strategy</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Designed nano-system-based POLR2A gene delivery to target TP53 mutations in TNBC. Conducted in silico analysis and validated therapeutic hypothesis for precision oncology applications.</p>
+                        <div class="project-tags">
+                            <span class="tag">Gene Therapy</span>
+                            <span class="tag warm">Oncology</span>
+                            <span class="tag lime">In Silico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">Buffer-Enhanced Oral Delivery: Insulin Biosimilar</div>
+                        <div class="meta">Oct 2024–Feb 2025 | Thesis</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Designed and optimized a tablet-in-tablet buffer system for insulin biosimilar oral delivery. Performed novel in vitro dissolution studies to achieve target pH-dependent drug release profiles.</p>
+                        <div class="project-tags">
+                            <span class="tag">Formulation</span>
+                            <span class="tag warm">Biosimilars</span>
+                            <span class="tag lime">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">AI in Pharma: Environmental Health Applications</div>
+                        <div class="meta">Jul 2023–Nov 2023 | Strategic Review</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Synthesized trends in AI/ML applications across pharmaceutical manufacturing, environmental monitoring, and sustainability. Positioned AI as key competitive lever for forward-thinking companies.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag warm">Strategy</span>
+                            <span class="tag lime">Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">Bio-Hacked Bliss: Functional Dark Chocolate</div>
+                        <div class="meta">Jan–Mar 2024 | Product Innovation</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Designed fast-melting chocolate strips infused with fox nut powder for gut health and healthy aging. Blended culinary science with nutraceutical strategy for consumer wellness.</p>
+                        <div class="project-tags">
+                            <span class="tag">Nutraceuticals</span>
+                            <span class="tag warm">Product Design</span>
+                            <span class="tag lime">Consumer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="title">Smart Watch: Personal Testing Laboratory</div>
+                        <div class="meta">Apr 2023–Jul 2023 | IoT + Pharma</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">Conceptualized a wearable platform integrating pharma monitoring, biomarker tracking, and AI diagnostics. Positioned IoT as next frontier for pharmaceutical patient engagement.</p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag warm">Wearables</span>
+                            <span class="tag lime">Digital Health</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research & <span class="accent">Credentials</span></h2>
+                <p>Formal training, publications, and visible thought leadership</p>
+            </div>
+
+            <div class="research-item fade-in">
+                <h3>🎓 Education</h3>
+                <p class="meta">B.Pharm, RPh | Registered Pharmacist + SRFP Fellow</p>
+                <p><strong>PSG College of Pharmacy</strong> | Coimbatore, Tamil Nadu | 75.8% GPA</p>
+                <p style="color: var(--text-light); font-size: 0.95rem;">Bachelor thesis on buffer-enhanced oral delivery systems for insulin biosimilars. Completed coursework in international business, drug regulatory affairs, and medicinal chemistry innovation.</p>
+            </div>
+
+            <div class="research-item fade-in">
+                <h3>📚 Certifications & Training</h3>
+                <p style="color: var(--text-light); margin-top: 1rem;">International Business Foundation • Drug Regulatory Affairs • Conflict Management • Behavioral Event Interview (BEI) • Assessor Certification • Articulate Workplace Communication Program • Captivate: Presentation Skills • Microsoft Excel Advanced • Research & Review Article Writing • IP Strategy for Scientists</p>
+            </div>
+
+            <div class="research-item fade-in">
+                <h3>🏆 Awards & Recognition</h3>
+                <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                    <li style="color: var(--text-light); margin-bottom: 0.5rem;">Best Poster Award (National Conference)</li>
+                    <li style="color: var(--text-light); margin-bottom: 0.5rem;">First Prize in Oral Presentation | First Prize in Business Quiz</li>
+                    <li style="color: var(--text-light); margin-bottom: 0.5rem;">Second Prize in Poster Presentation | Second Prize in Essay Writing</li>
+                    <li style="color: var(--text-light);">Fourth Prize (National Innovative Design Protection) | 68+ teams competed</li>
+                </ul>
+            </div>
+
+            <div class="research-item fade-in">
+                <h3>🎤 Visible Work</h3>
+                <p style="color: var(--text-light); margin-top: 1rem;">Co-Editor, The Glitz Magazine | Master of Ceremonies (ICAAPS '22, NCPI '23, ISRMC '23) | Conference Committee Member | Resource Person (LinkedIn Unlocked: Leveraging Professional Networks) | Institution Innovation Cell Analyst</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section id="contact" class="alt" style="padding: 6rem 2rem; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Let's Talk Biotech Strategy</h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                If you're a pharma product leader navigating biologics or biosimilars, and you need someone who speaks both science and business—let's talk.
+            </p>
+
+            <div class="social-links" style="margin-bottom: 2rem;">
+                <a href="mailto:preethamantonpharma@gmail.com">📧 Email</a>
+                <a href="https://linkedin.com/in/preethamantonpharma" target="_blank">🔗 LinkedIn</a>
+                <a href="https://instagram.com/just.prxtham" target="_blank">📱 Instagram</a>
+                <a href="tel:+918248782736">📞 Call</a>
+            </div>
+
+            <p style="color: var(--text-light); font-size: 0.9rem;">Madurai, Tamil Nadu | Available for consulting, contract, or full-time roles</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Preetham Anton. Built to convert pharma PMs into partners.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+        document.querySelectorAll('.research-item').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
